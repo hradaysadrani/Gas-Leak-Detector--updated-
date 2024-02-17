@@ -59,9 +59,10 @@ void loop() {
     Serial.println("Verifying is there any actual Gas Leak?");
     Serial.println("Please Wait....");
     delay(5000);
-    if(value > 70){
+    // The delay given above will prevent instantly rectified accidental leaks.
+    if(value > 65){
       SendMessage();
-      myregulator.write(90); // Test this thing later. First, verify basic working.
+      myregulator.write(90); 
     }
     else{
       Serial.println("Seems that situation is normal.");
