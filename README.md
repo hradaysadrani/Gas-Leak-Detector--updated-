@@ -6,7 +6,7 @@ claims to public sector marketing companies (OMCs) (IOCL, HPCL, etc.). It also l
 whose worth was in multiple crores.
 
 To prevent such accidents, a prototype of this project was made in the year 2018 which had an SMS alert mechanism 
-on occasion of gas leak and control of gas regulator with the help of a customized Blynk mobile applicaƟon. Later, 
+on occasion of gas leak and control of gas regulator with the help of a customized Blynk mobile application. Later, 
 further improvement was done in it so that it can be pracƟcally used by public / industries in real world. To make this 
 possible, a group of three enthusiasƟc people came forward started working on enhancing the features of this 
 project. 
