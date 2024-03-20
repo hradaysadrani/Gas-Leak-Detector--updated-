@@ -1,6 +1,9 @@
 // Code written by Hraday Sadrani, B.Tech. , Electrical Engineering Student @ NITS on 27/01/2024
 #include <WiFi.h>   // As we have used ESP32. So to disable WiFi and Bluetooth antenna, we have used this library.
 #define sensor 34 // Gas Sensor (MQ-2 or MQ-6 is connected on D34)
+#define REDled 26
+#define GREENled 27
+#define buzzer 14
 #include <ESP32Servo.h>
 
 
@@ -9,6 +12,10 @@ int pos = 0;    // Initially, Regulator will be at ON position.
 int regulatorPin = 25;  // Regulator Knob's (Servo Motor) signal pin is attached to D25.
 
 void setup() {
+  pinMode(REDled, OUTPUT);
+  pinMode(GREENled, OUTPUT);
+  pinMode(buzzer, OUTPUT);
+
   Serial.begin(115200);  // For Serial Monitor
   Serial2.begin(115200); // For A9G Board
   // Making Radio OFF for power saving
@@ -22,9 +29,16 @@ void setup() {
   myregulator.attach(regulatorPin, 500, 2400); // Attaches the regulator on D25 to the myregulator object.
   // using default min/max of 500us and 2400us
   myregulator.write(0);
+  digitalWrite(REDled, HIGH);
+  digitalWrite(GREENled, HIGH);
+  digitalWrite(buzzer, LOW);
+
   Serial.println("Please wait while GSM module turns ON..");
   delay(20000); // Safe delay required for GSM module to completely turn on.
   Serial.println("Ok, System is Ready to Use..");
+  digitalWrite(REDled, LOW);
+  digitalWrite(GREENled, HIGH);
+  digitalWrite(buzzer, LOW);
 }
 
 void SendMessage() {
@@ -32,8 +46,8 @@ void SendMessage() {
   Serial2.println("AT+CMGF=1\r");
   Serial.println("AT+CMGF=1\r");
   delay(2000);
-  Serial2.println("AT+CMGS=\"+919321899124\"\r");
-  Serial.println("AT+CMGS=\"+919321899124\"\r");
+  Serial2.println("AT+CMGS=\"+919394006053\"\r");
+  Serial.println("AT+CMGS=\"+919394006053\"\r");
   delay(2000);
   Serial2.println("GAS LEAK DETECTED. REGULATOR HAS BEEN TURNED OFF!");
   Serial.println("GAS LEAK DETECTED. REGULATOR HAS BEEN TURNED OFF!");
@@ -56,16 +70,25 @@ void loop() {
   // The below if-else block will detect whether there is an gas leak or not. If yes, then it will automatically turn off the regulator and sends an alert message to the user.
   
   if(value > 70){
-    Serial.println("Verifying is there any actual Gas Leak?");
+    Serial.println( "Verifying is there any actual Gas Leak?");
     Serial.println("Please Wait....");
+    digitalWrite(REDled, HIGH);
+    digitalWrite(GREENled, LOW);
+    digitalWrite(buzzer, LOW);
     delay(5000);
     // The delay given above will prevent instantly rectified accidental leaks.
-    if(value > 65){
-      SendMessage();
-      myregulator.write(90); 
+    if(value > 80){
+      myregulator.write(90);
+      digitalWrite(REDled, HIGH);
+      digitalWrite(GREENled, LOW);
+      digitalWrite(buzzer, HIGH);
+      SendMessage(); 
     }
     else{
       Serial.println("Seems that situation is normal.");
+      digitalWrite(REDled, LOW);
+      digitalWrite(GREENled, HIGH);
+      digitalWrite(buzzer, LOW);
     }
   }
   delay(500);
