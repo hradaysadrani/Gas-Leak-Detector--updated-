@@ -1,36 +1,46 @@
 # SMS-Based Gas Leak Accident Prevention System
+
+ -> **Video explaination of this project** ▶️ ->   https://youtu.be/zow6AbGhIyU 
+ 
  The idea about this topic was conceptualized when news about LPG gas leak accidents where on rise. According to 
 the data given by Ministry of Petroleum and Natural Gas of India, from year 2017 to 2022, 5,122 incidents of 
 accidents involving LPG have been reported which resulted to expenditure of Rs.67.62 crores as insurance policy 
 claims to public sector marketing companies (OMCs) (IOCL, HPCL, etc.). It also led to loss of lives and private property 
 whose worth was in multiple crores.
 
-To prevent such accidents, a prototype of this project was made in the year 2018 which had an SMS alert mechanism 
-on occasion of gas leak and control of gas regulator with the help of a customized Blynk mobile application. Later, 
-further improvement was done in it so that it can be pracƟcally used by public / industries in real world. To make this 
-possible, a group of three enthusiasƟc people came forward started working on enhancing the features of this 
-project. 
+**Did you know?** 🤔🤔
 
-The SMS-based Gas Leak Prevention System is designed to enhance safety by preventing accidents caused by gas 
-leaks. Leveraging the ESP32 microcontroller and the A9G GSM+GPS module, this system offers automatic valve 
-control, and timely alerts to user in case of gas leak. The following system is envisaged to have following features -: 
+1) In Bengaluru, there was a 21.6% rise in cases of fire accidents caused by leaking LPG cylinders between the years 2022 and 2023.📈📈
+   
+2) Over half of the flame burn injuries reported in a Central Delhi hospital were due to household LPG leaks (according to a study conducted between 2016 and 2020 by doctors from Ram Manohar Lohia hospital).
 
-1) Gas Leak Detection: The system continuously monitors gas levels (LPG primarily Butane and Propane) using 
-MQ – 2 / MQ – 6 gas sensors. When a leak is detected, it triggers an immediate response.
- 
-2) Valve Control: In case of a gas leak, the system automatically closes the gas valve or regulator to prevent 
-further leakage.
+We oftenly hear such news of LPG gas leak accidents in the headlines of TV news channels. 
 
-3) User Alerts: The system sends alerts to the user via SMS or notifications on their mobile device, ensuring 
-prompt action. 
+So, to prevent such accidents, with the help of ESP32 microcontroller, I have designed an "SMS-Based Gas leak accident prevention system" which alerts user about the leak and automatically turns off regulator/ valve to prevent accident.
 
-4) Industrial Application: For industrial units, the system provides the GPS location of the gas leak site. This 
-information can be sent to the owner or manager for quick response and mitigation. 
+***Salient Features of the System*** 💡💡 -: 
 
-5) Low power consumption: The system operates on only 5V supply with need of less than 0.5A of current. 
-Making it suitable to operate on batteries for longer duration in case of power cut. 
+1) Automatic closing of valve/ regulator in case of a gas leak and simultaneously alerting the user about the action taken by the system.🤝🤝
 
-This system has the potential to save many lives and prevent property damage of huge worth, making it a valuable 
-addition to both domestic and industrial environments. Also, many customizations are possible which will increase 
-the efficiency and usability of system, reduce its manufacturing cost, and ultimately become a more economical 
-option as an accident prevention system. Suggestions / Feedbacks regarding this project is most welcome!
+2) Low power consumption.🌱🌱
+-> Operates on 5v with need of less than 0.5A current. Hence, it can easily be powered through solar energy as well.
+
+3) Easy customization and upgradability.✔️✔️
+-> As ESP32 also has a Wi-Fi chip onboard, the project can further be easily upgraded to add functionalities like alert through E-mail or mobile app notification, knowing the current status of system as well as Lights and exhaust fan through an mobile app, and many more..
+
+4) Potential to be optimized more and make the device cost-effective.🚅🚅
+-> The system's accuracy currently stands at around 90% which can be further optimized through various methods and cost can also be lowered by choosing selective components and manufacturing it on a large scale.
+
+5) And much more..
+
+In this repository, you will get code and circuit diagram of this project.
+
+*References used during research* - 
+ 1) Working of MQ Series sensor - https://lastminuteengineers.com/mq2-gas-senser-arduino-tutorial/
+ 2) Deccan Herald. - https://lnkd.in/djGj2Xig
+ 3) Millennium post. - https://lnkd.in/dGyHjMJJ
+ 4) Hindustan Times - https://lnkd.in/d7uAKY5i
+ 5) Times Now.
+ 6) ANI.
+
+Thanks for reading till the end!! Have a nice day!😄😄
