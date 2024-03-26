@@ -46,8 +46,8 @@ void SendMessage() {
   Serial2.println("AT+CMGF=1\r");
   Serial.println("AT+CMGF=1\r");
   delay(2000);
-  Serial2.println("AT+CMGS=\"+919394006053\"\r");
-  Serial.println("AT+CMGS=\"+919394006053\"\r");
+  Serial2.println("AT+CMGS=\"+91xxxxxxxxxx\"\r"); // +91 -> Country code for India.
+  Serial.println("AT+CMGS=\"+91xxxxxxxxxx\"\r");
   delay(2000);
   Serial2.println("GAS LEAK DETECTED. REGULATOR HAS BEEN TURNED OFF!");
   Serial.println("GAS LEAK DETECTED. REGULATOR HAS BEEN TURNED OFF!");
